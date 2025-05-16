@@ -7,12 +7,18 @@
 namespace prog {
     class Image {
     private:
-		// TODO: define private fields for image state
-    
-	public:
+
+        int width_;
+        int height_;
+        std::vector<Color> pixels_; //Cada pixel da imagem é uma cor, e a
+        // classe Color representa exatamente isso: uma cor RGB com três
+        // componentes (vermelho, verde e azul).
+
+
+    public:
         Image(int w, int h, const Color &fill = {255, 255, 255});
 
-        ~Image();
+        ~Image();//Apaga da memória
 
         int width() const;
 
