@@ -8,8 +8,10 @@ namespace prog {
 
     class Color {
     private:
-        // TODO: private fields required for color representation.
 
+        rgb_value r_;
+        rgb_value g_;
+        rgb_value b_;
     public:
         Color();
 
@@ -37,3 +39,4 @@ std::ostream &operator<<(std::ostream &output, const prog::Color &c);
 
 
 #endif
+
