@@ -1,39 +1,32 @@
-//
-// Created by gusta on 19/05/2025.
-//
-#include "Command/Invert.hpp"
 #include "Image.hpp"
-#include "Color.hpp"
-#include <sstream>
 
 namespace prog {
-    namespace command {
+    Image::Image(int w, int h, const Color &fill)//cria imagem com largura w, altura h, preenchida com a cor 'fill'
+    : width_(w), height_(h), pixels_(w * h, fill) {}//w * h é o numero total de pixeis
 
-        Invert::Invert() : Command("Invert") {}
+    Image::~Image() {
+    }
 
-        Invert::~Invert() {}
+    int Image::width() const {
+        return width_;
+    }
 
-        Image* Invert::apply(Image* img) {
-            // Cria nova imagem com as mesmas dimensões
-            Image* new_img = new Image(*img); // cópia da imagem original
+    int Image::height() const {
+        return height_;
+    }
 
-            for (int y = 0; y < new_img->height(); ++y) {
-                for (int x = 0; x < new_img->width(); ++x) {
-                    Color c = new_img->at(x, y);
-                    Color inverted(255 - c.red(), 255 - c.green(), 255 - c.blue());
-                    new_img->at(x, y) = inverted;
-                }
-            }
 
-            delete img; // liberta imagem original
-            return new_img;
-        }
 
-        std::string Invert::toString() const {
-            std::ostringstream ss;
-            ss << name();
-            return ss.str();
-        }
 
+    Color &Image::at(int x, int y) {
+        //calcula o valor mutavel da posicao(x,y), dentro das restricoes x e y
+        return pixels_[y][x];
+    }
+
+
+    const Color &Image::at(int x, int y) const {//calcula o valor "read only"
+        //da posicao(x,y), dentro das restricoes x e y
+        return pixels_[y][x];
+    
     }
 }
