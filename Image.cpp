@@ -18,15 +18,18 @@ namespace prog {
 
 
 
-    Color &Image::at(int x, int y) {
-        if( 0 <= x < width() && 0 <= y < height() ){
-
-            return pixels_[y * width_ + x]; // calculo da posicao linear do pixel
-        }
-
-    }
-
-    const Color &Image::at(int x, int y) const {
+    Color &Image::at(int x, int y) { //calcula o valor mutavel da posicao(x,y), dentro das restricoes x e y
+        if (x >= 0 && x < width() && y >= 0 && y < height()) {
         return pixels_[y * width_ + x];
     }
-}
+        throw std::out_of_range("Image::at - pixel out of bounds");
+    }
+
+
+    const Color &Image::at(int x, int y) const {//calcula o valor "read only"
+        //da posicao(x,y), dentro das restricoes x e y
+        if (x >= 0 && x < width() && y >= 0 && y < height()) {
+            return pixels_[y * width_ + x];
+        }
+        throw std::out_of_range("Image::at - pixel out of bounds");
+    }
