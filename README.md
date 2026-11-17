@@ -1,4 +1,4 @@
-# 🖼️ Script-Driven Image Editor (C++)
+# Script-Driven Image Editor (C++)
 
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?logo=cplusplus&logoColor=white) ![Grade](https://img.shields.io/badge/Grade-18%2F20-green)
 
@@ -6,7 +6,7 @@ My **first programming project**: a C++ program that reads **command scripts ("s
 
 > Project for **Programming (PROG)** — BSc in Informatics and Computing Engineering (L.EIC), FEUP, 2024/2025. **Grade: 18/20.**
 
-## ✨ Commands
+## Commands
 | Command | Description |
 |---|---|
 | `blank` | Create a new image with a given size and background color |
@@ -20,7 +20,7 @@ My **first programming project**: a C++ program that reads **command scripts ("s
 | `move` | Shift the image, filling the gap with the background color |
 | `slide` | Cyclic shift: what leaves one side comes back on the other |
 
-## 🧩 Design
+## Design
 - **`Image`** and **`Color`**: an image is a grid of RGB pixels
 - **`Command`**: an abstract class with a virtual `apply(Image*)` method, and one subclass per operation (**Command pattern**)
 - **`ScrimParser`**: turns a script file into a list of `Command` objects
@@ -29,7 +29,7 @@ My **first programming project**: a C++ program that reads **command scripts ("s
 
 To add a new operation, you only write a new `Command` subclass and register it in the parser.
 
-## 📝 Example script
+## Example script
 ```
 blank 200 100 255 255 255
 fill 20 20 50 50 255 0 0
@@ -37,5 +37,5 @@ h_mirror
 save output/example.png
 ```
 
-## 👥 Authors
+## Authors
 André Rocha (up202407636) · Gustavo Monteiro (up202456754)
