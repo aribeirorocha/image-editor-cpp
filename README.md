@@ -52,4 +52,4 @@ C++ · Programação Orientada a Objetos · Padrão Command · libpng
 ## Autores
 
 - André Rocha (up202407636)
-- Gustavo Monteiro
+- Gustavo Monteiro (up202456754)
